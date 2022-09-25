@@ -436,7 +436,7 @@ func calcDifficultyHomestead(time uint64, parent *types.Header) *big.Int {
 		x.Set(bigMinus99)
 	}
 	// (parent_diff + parent_diff // 2048 * max(1 - (block_timestamp - parent_timestamp) // 10, -99))
-	y.Div(parent.Difficulty, params.DifficultyBoundDivisor)
+	y.Div(parent.Difficulty, params.DifficultyBoundDivisor2)
 	x.Mul(y, x)
 	x.Add(parent.Difficulty, x)
 
